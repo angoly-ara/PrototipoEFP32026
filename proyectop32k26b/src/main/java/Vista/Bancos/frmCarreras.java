@@ -294,7 +294,18 @@ public class frmCarreras extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ayudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaActionPerformed
-        
+        try {
+            String ruta = "src\\main\\java\\Ayudas\\Bancos\\Ayuda Bancos.chm";
+            File archivo = new File(ruta);
+            if (archivo.exists()) {
+                Runtime.getRuntime().exec("hh.exe \"" + ruta + "\"");
+            } else {
+                System.out.println("La ayuda no fue encontrada");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    
     }//GEN-LAST:event_ayudaActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
@@ -412,7 +423,52 @@ public class frmCarreras extends javax.swing.JFrame {
     }//GEN-LAST:event_buscar2ActionPerformed
 
     private void reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteActionPerformed
-      
+       java.sql.Connection conn = null;
+    try {
+        conn = Modelo.Conexion.getConnection();
+        
+        
+        String ruta = new java.io.File("").getAbsolutePath() 
+                    + "\\src\\main\\java\\Reportes\\Bancos\\RCarreas.jrxml";
+        
+        System.out.println("Buscando reporte en: " + ruta); // Para verificar en consola
+        
+        java.io.File archivo = new java.io.File(ruta);
+        if (!archivo.exists()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "No se encontró el archivo del reporte en:\n" + ruta,
+                "Archivo no encontrado", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        java.util.Map<String, Object> parametros = new java.util.HashMap<>();
+        
+        net.sf.jasperreports.engine.JasperReport reporte =
+            net.sf.jasperreports.engine.JasperCompileManager.compileReport(ruta);
+        
+        net.sf.jasperreports.engine.JasperPrint print =
+          net.sf.jasperreports.engine.JasperFillManager.fillReport(reporte, parametros, conn);
+        
+        net.sf.jasperreports.engine.JasperExportManager.exportReportToPdfFile(print,"reporte.pdf");
+        net.sf.jasperreports.swing.JRViewer viewer = new net.sf.jasperreports.swing.JRViewer(print);
+        
+        javax.swing.JFrame frame = new javax.swing.JFrame("Reporte de Clientes");
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
+        frame.add(viewer);
+        frame.setVisible(true);
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Error al generar el reporte:\n" + e.getMessage(),
+            "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    } finally {
+        if (conn != null) {
+            try { conn.close(); } catch (Exception ex) { ex.printStackTrace(); }
+        }
+    }
     }//GEN-LAST:event_reporteActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
