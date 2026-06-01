@@ -13,6 +13,7 @@ import java.awt.event.WindowEvent;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import Vista.Bancos.frmCarreras;
 
 
 /**
@@ -67,10 +68,10 @@ public class MdiBancos extends javax.swing.JFrame {
         mnuSalirSistema = new javax.swing.JCheckBoxMenuItem();
         mnuCatalogos = new javax.swing.JMenu();
         mnuCatalogosMantenimientos = new javax.swing.JMenu();
-        mantenimientoBancos = new javax.swing.JMenuItem();
+        manteniminetoBancos = new javax.swing.JMenuItem();
         frmMantenimientoClientes = new javax.swing.JMenuItem();
         frmMantenimientoTipoCuenta = new javax.swing.JMenuItem();
-        MantiemientoCarreras = new javax.swing.JMenuItem();
+        mantiemientoCarreras = new javax.swing.JMenuItem();
         mnuProcesos = new javax.swing.JMenu();
         frmMantenimientoConciliacionBancaria = new javax.swing.JMenuItem();
         frmProcesoAplicacionPerfil = new javax.swing.JMenuItem();
@@ -131,13 +132,13 @@ public class MdiBancos extends javax.swing.JFrame {
             }
         });
 
-        mantenimientoBancos.setText("Mantenimiento Bancos");
-        mantenimientoBancos.addActionListener(new java.awt.event.ActionListener() {
+        manteniminetoBancos.setText("Mantenimiento Bancos");
+        manteniminetoBancos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mantenimientoBancosActionPerformed(evt);
+                manteniminetoBancosActionPerformed(evt);
             }
         });
-        mnuCatalogosMantenimientos.add(mantenimientoBancos);
+        mnuCatalogosMantenimientos.add(manteniminetoBancos);
 
         frmMantenimientoClientes.setText("Mantenimiento Clientes");
         frmMantenimientoClientes.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -164,13 +165,13 @@ public class MdiBancos extends javax.swing.JFrame {
         });
         mnuCatalogosMantenimientos.add(frmMantenimientoTipoCuenta);
 
-        MantiemientoCarreras.setText("Mantenimiento Carreras");
-        MantiemientoCarreras.addActionListener(new java.awt.event.ActionListener() {
+        mantiemientoCarreras.setText("Mantenimiento Carreras");
+        mantiemientoCarreras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MantiemientoCarrerasActionPerformed(evt);
+                mantiemientoCarrerasActionPerformed(evt);
             }
         });
-        mnuCatalogosMantenimientos.add(MantiemientoCarreras);
+        mnuCatalogosMantenimientos.add(mantiemientoCarreras);
 
         mnuCatalogos.add(mnuCatalogosMantenimientos);
 
@@ -288,7 +289,8 @@ public class MdiBancos extends javax.swing.JFrame {
      // Método para bloquear o desbloquear opciones según los permisos
 public void configurarVisibilidadBotones(List<Integer> appsPermitidas) {
     
-    mantenimientoBancos.setEnabled(false);
+    manteniminetoBancos.setEnabled(false);
+    mantiemientoCarreras.setEnabled(false);
     frmMantenimientoClientes.setEnabled(false);
     frmMantenimientoTipoCuenta.setEnabled(false);
     frmMantenimientoBitacora.setEnabled(false);
@@ -298,13 +300,15 @@ public void configurarVisibilidadBotones(List<Integer> appsPermitidas) {
     frmMantenimientoConciliacionBancaria.setEnabled(false);
     frmMantenimientoCatTipoTransaccion.setEnabled(false);
     frmMantenimientoCatEstadoConciliacion.setEnabled(false);
+    
 
     // Recorre la lista y enciende las que el usuario tenga asignadas
     for (int codigoApp : appsPermitidas) {
         switch (codigoApp) {
-            case 10: // Código numérico le pertenece a cada ventana
-                mantenimientoBancos.setEnabled(true);
-                break;
+            // En los case, corrige:
+case 10:
+    mantiemientoCarreras.setEnabled(true);  // era frmManteniminetoCarreas (typo)
+    break;
             case 10007:
                 frmMantenimientoClientes.setEnabled(true);
                 break;
@@ -333,8 +337,8 @@ public void configurarVisibilidadBotones(List<Integer> appsPermitidas) {
                 frmMantenimientoCatEstadoConciliacion.setEnabled(true);
                 break;
             case 10023:
-                //frmMantenimientoCarreras.setEnabled(true);
-                break;
+    mantiemientoCarreras.setEnabled(true);   // ← con typo, igual que la declaración
+    break;
         }
     }
 }
@@ -371,9 +375,9 @@ public void configurarVisibilidadBotones(List<Integer> appsPermitidas) {
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuCatalogosMantenimientosActionPerformed
 
-    private void mantenimientoBancosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoBancosActionPerformed
-       System.out.println("Abriendo Mantenimiento Bancos");
-    frmBanco ventana = new frmBanco();
+    private void manteniminetoBancosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manteniminetoBancosActionPerformed
+       System.out.println("Abriendo Mantenimiento Carreras");
+    frmCarreras ventana = new frmCarreras();
     jDesktopPane1.add(ventana);
     java.awt.Dimension desktopSize = jDesktopPane1.getSize();
     java.awt.Dimension frameSize   = ventana.getSize();
@@ -382,7 +386,7 @@ public void configurarVisibilidadBotones(List<Integer> appsPermitidas) {
         (desktopSize.height - frameSize.height) / 2
     );
     ventana.setVisible(true);
-    }//GEN-LAST:event_mantenimientoBancosActionPerformed
+    }//GEN-LAST:event_manteniminetoBancosActionPerformed
 
     private void frmMantenimientoClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmMantenimientoClientesActionPerformed
        
@@ -520,9 +524,14 @@ vista.setVisible(true);
     ventana.setVisible(true);           // TODO add your handling code here:
     }//GEN-LAST:event_frmMantenimientoCatTipoTransaccionActionPerformed
 
-    private void MantiemientoCarrerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MantiemientoCarrerasActionPerformed
-        
-    }//GEN-LAST:event_MantiemientoCarrerasActionPerformed
+    private void mantiemientoCarrerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantiemientoCarrerasActionPerformed
+       
+      System.out.println("Abriendo Mantenimiento Carreras");
+    frmCarreras ventana = new frmCarreras();
+    ventana.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+    ventana.setVisible(true);
+
+    }//GEN-LAST:event_mantiemientoCarrerasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -575,7 +584,6 @@ vista.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem MantiemientoCarreras;
     private javax.swing.JMenuItem frmMantenimientoBitacora;
     private javax.swing.JMenuItem frmMantenimientoCatEstadoConciliacion;
     private javax.swing.JMenuItem frmMantenimientoCatTipoTransaccion;
@@ -590,7 +598,8 @@ vista.setVisible(true);
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem mantenimientoBancos;
+    private javax.swing.JMenuItem manteniminetoBancos;
+    private javax.swing.JMenuItem mantiemientoCarreras;
     private javax.swing.JMenu mnuArchivo;
     private javax.swing.JMenu mnuCatalogos;
     private javax.swing.JMenu mnuCatalogosMantenimientos;
