@@ -66,12 +66,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuCatalogosMantenimientosActionPerformed"/>
               </Events>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="mantenimientoBancos">
+                <MenuItem class="javax.swing.JMenuItem" name="manteniminetoBancos">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Mantenimiento Bancos"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mantenimientoBancosActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manteniminetoBancosActionPerformed"/>
                   </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="frmMantenimientoClientes">
@@ -91,12 +91,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="frmMantenimientoTipoCuentaActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="MantiemientoCarreras">
+                <MenuItem class="javax.swing.JMenuItem" name="mantiemientoCarreras">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Mantenimiento Carreras"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MantiemientoCarrerasActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mantiemientoCarrerasActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>

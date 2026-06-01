@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+// Angoly Camila Araujo Mayen 9959-24-17623
 package Vista.Bancos;
 import Controlador.Bancos.clsCarreras;
 import Modelo.Bancos.CarrerasDAO;
 import java.io.File;
 import javax.swing.table.DefaultTableModel;
+
 
 public class frmCarreras extends javax.swing.JFrame {
 
