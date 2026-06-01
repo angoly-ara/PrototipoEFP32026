@@ -24,6 +24,7 @@ public class frmBitacoraBancaria extends javax.swing.JInternalFrame {
         CODIGOS_TABLA.put("CatEstadoConciliacion",   5200);
         CODIGOS_TABLA.put("Banco",                   5300);
         CODIGOS_TABLA.put("Cliente",                 5400);
+        CODIGOS_TABLA.put("Carreas",                 5900);
         // Transaccionales
         CODIGOS_TABLA.put("CuentaBancaria",          5500);
         CODIGOS_TABLA.put("MovimientoBancario",      5600);
