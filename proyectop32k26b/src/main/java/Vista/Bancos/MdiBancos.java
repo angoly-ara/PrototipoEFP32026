@@ -70,6 +70,7 @@ public class MdiBancos extends javax.swing.JFrame {
         mantenimientoBancos = new javax.swing.JMenuItem();
         frmMantenimientoClientes = new javax.swing.JMenuItem();
         frmMantenimientoTipoCuenta = new javax.swing.JMenuItem();
+        MantiemientoCarreras = new javax.swing.JMenuItem();
         mnuProcesos = new javax.swing.JMenu();
         frmMantenimientoConciliacionBancaria = new javax.swing.JMenuItem();
         frmProcesoAplicacionPerfil = new javax.swing.JMenuItem();
@@ -162,6 +163,14 @@ public class MdiBancos extends javax.swing.JFrame {
             }
         });
         mnuCatalogosMantenimientos.add(frmMantenimientoTipoCuenta);
+
+        MantiemientoCarreras.setText("Mantenimiento Carreras");
+        MantiemientoCarreras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MantiemientoCarrerasActionPerformed(evt);
+            }
+        });
+        mnuCatalogosMantenimientos.add(MantiemientoCarreras);
 
         mnuCatalogos.add(mnuCatalogosMantenimientos);
 
@@ -322,6 +331,9 @@ public void configurarVisibilidadBotones(List<Integer> appsPermitidas) {
                 break;
             case 10022:
                 frmMantenimientoCatEstadoConciliacion.setEnabled(true);
+                break;
+            case 10023:
+                //frmMantenimientoCarreras.setEnabled(true);
                 break;
         }
     }
@@ -508,6 +520,10 @@ vista.setVisible(true);
     ventana.setVisible(true);           // TODO add your handling code here:
     }//GEN-LAST:event_frmMantenimientoCatTipoTransaccionActionPerformed
 
+    private void MantiemientoCarrerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MantiemientoCarrerasActionPerformed
+        
+    }//GEN-LAST:event_MantiemientoCarrerasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -559,6 +575,7 @@ vista.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MantiemientoCarreras;
     private javax.swing.JMenuItem frmMantenimientoBitacora;
     private javax.swing.JMenuItem frmMantenimientoCatEstadoConciliacion;
     private javax.swing.JMenuItem frmMantenimientoCatTipoTransaccion;
